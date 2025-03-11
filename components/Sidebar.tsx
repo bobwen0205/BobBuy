@@ -4,16 +4,17 @@ import Logo from "./Logo";
 import { X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { headerData } from "@/constants";
 import SocailMedia from "./SocailMedia";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { CATEGORIES_QUERYResult } from "@/sanity.types";
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  categories: CATEGORIES_QUERYResult;
 }
 
-const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
+const Sidebar: FC<SidebarProps> = ({ isOpen, onClose, categories }) => {
   const pathname = usePathname();
   const sidebarRef = useOutsideClick<HTMLDivElement>(onClose);
   return (
@@ -38,16 +39,17 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
         <div className="flex flex-col gap-3.5 text-base capitalize font-semibold tracking-wide">
-          {headerData?.map((item) => (
+          {categories?.map((category) => (
             <Link
               onClick={onClose}
-              key={item?.title}
-              href={item?.href}
+              key={category?.title}
+              href={`/category/${category?.slug?.current}`}
               className={`hover:text-white hoverEffect w-24 ${
-                pathname === item?.href && "text-red-600"
+                pathname === `/category/${category?.slug?.current}` &&
+                "text-red-600"
               }`}
             >
-              {item?.title}
+              {category?.title}
             </Link>
           ))}
         </div>

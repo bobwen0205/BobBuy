@@ -18,7 +18,7 @@ export const getProductBySlug = async (slug: string) => {
   }
 };
 
-export const getALlCategories = async () => {
+export const getAllCategories = async () => {
   const CATEGORIES_QUERY = defineQuery(
     `*[_type == 'category']| order(name asc)`
   );

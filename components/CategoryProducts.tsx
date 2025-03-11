@@ -7,7 +7,6 @@ import { Loader2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import ProductCard from "./ProductCard";
 import NoProductsAvailable from "./NoProductsAvailable";
-import Link from "next/link";
 
 interface Props {
   categories: CATEGORIES_QUERYResult;

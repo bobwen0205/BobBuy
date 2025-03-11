@@ -7,7 +7,7 @@ import React from "react";
 const HeaderMenu = ({ categories }: { categories: CATEGORIES_QUERYResult }) => {
   const pathname = usePathname();
   return (
-    <div className="hidden md:inline-flex w-1/3 items-center gap-5 text-sm capitalize font-semibold">
+    <div className="hidden lg:inline-flex w-1/3 items-center gap-5 text-sm capitalize font-semibold">
       <Link
         href={"/"}
         className={`hover:text-darkColor hoverEffect relative group whitespace-nowrap ${

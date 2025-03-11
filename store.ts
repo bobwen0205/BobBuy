@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { Product } from "./sanity.types";
 
-interface CartItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }
@@ -14,7 +14,7 @@ interface CartState {
   deleteCartProduct: (productId: string) => void;
   resetCart: () => void;
   getTotalPrice: () => number;
-  getSubtotal: () => Number;
+  getSubtotal: () => number;
   getItemCount: (productId: string) => number;
   getGroupedItems: () => CartItem[];
 }
