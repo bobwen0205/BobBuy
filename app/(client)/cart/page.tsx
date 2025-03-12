@@ -27,7 +27,7 @@ import {
   Metadata,
 } from "@/actions/createCheckoutSession";
 
-const cartPage = () => {
+const CartPage = () => {
   const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(false);
   const { isSignedIn } = useAuth();
@@ -215,6 +215,7 @@ const cartPage = () => {
                         />
                       </div>
                       <Button
+                        disabled={loading}
                         onClick={handleCheckout}
                         className="w-full rounded-full font-semibold tracking-wide"
                         size={"lg"}
@@ -292,4 +293,4 @@ const cartPage = () => {
   );
 };
 
-export default cartPage;
+export default CartPage;

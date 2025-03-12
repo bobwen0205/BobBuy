@@ -90,12 +90,14 @@ const OrderDetailsDialog: FC<Props> = ({ order, isOpen, onClose }) => {
                   )}
                 </TableCell>
                 <TableCell>{product?.quantity}</TableCell>
-                <TableCell>
-                  <PriceFormatter
-                    className="text-black font-medium"
-                    amount={product?.product?.price! * product?.quantity!}
-                  />
-                </TableCell>
+                {product?.product?.price && product?.quantity && (
+                  <TableCell>
+                    <PriceFormatter
+                      className="text-black font-medium"
+                      amount={product?.product?.price * product?.quantity}
+                    />
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
