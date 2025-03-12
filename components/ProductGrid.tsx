@@ -28,7 +28,7 @@ const ProductGrid = () => {
       }
     };
     fetchData();
-  }, [selectedTab, params, query]);
+  }, [selectedTab]);
   return (
     <div className="mt-10 flex flex-col items-center">
       <HomeTabbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
